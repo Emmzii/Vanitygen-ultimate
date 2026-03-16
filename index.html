@@ -6,7 +6,7 @@
 <title>VanityGen Ultimate</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <!-- Plausible Analytics — privacy-friendly, no cookies, GDPR compliant -->
-<script defer data-domain="vanitygen.netlify.app" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="emmzii.github.io" src="https://plausible.io/js/script.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0a0f;--surface:#111118;--card:#16161f;--border:#ffffff12;--accent:#00f5c4;--accent2:#7b61ff;--warn:#ff6b35;--text:#e8e8f0;--muted:#6b6b80;--success:#00e676;--r:14px}
@@ -366,8 +366,7 @@ input[type=text]::placeholder{color:var(--muted)}
 </div>
 
 <!-- Load crypto libs (needed for free-tier instant gen + EVM vanity) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl-fast.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+<!-- crypto runs in workers only — no CDN blocking main thread -->
 
 <script>
 // ─── Telegram init ────────────────────────────────────────────────────────────
@@ -386,20 +385,12 @@ let activeWorkers = [];   // parallel worker pool
 let searchDone = false;   // flag so only first winner is handled
 let searchStart = 0, lastCount = 0;
 
-// ─── Wait for libs ────────────────────────────────────────────────────────────
+// ─── Loading overlay — dismiss immediately, all crypto is in workers ──────────
 window.addEventListener('load', () => {
-  let t = 0;
-  const iv = setInterval(() => {
-    t++;
-    const ok = window.nacl?.sign && window.ethers?.Wallet;
-    if (ok || t > 40) {
-      clearInterval(iv);
-      document.getElementById('loadingOverlay').classList.add('hidden');
-      if (!ok) {
-        document.getElementById('loadingSub').textContent = '⚠️ Refresh if crypto fails';
-      }
-    }
-  }, 150);
+  // Small delay just for the loading animation to feel intentional
+  setTimeout(() => {
+    document.getElementById('loadingOverlay').classList.add('hidden');
+  }, 600);
 });
 
 // ─── Base58 ───────────────────────────────────────────────────────────────────
@@ -557,20 +548,26 @@ async function generateFree() {
   await new Promise(r=>setTimeout(r,30));
 
   try {
-    const nacl=window.nacl, ethers=window.ethers;
-    if(!nacl) throw new Error('nacl not loaded — refresh');
     let address,privateKey,net=selectedNetwork;
+    const isEVM = net==='evm'||net==='base'||net==='optimism'||net==='allevm';
 
-    if(net==='solana'){
+    if(!isEVM){
+      // Solana — pure WebCrypto, no external libs needed
       const seed=new Uint8Array(32); crypto.getRandomValues(seed);
-      const kp=nacl.sign.keyPair.fromSeed(seed);
-      // Full 64-byte secret key = seed + publicKey — required by Phantom/Solflare
-      const secret64=new Uint8Array(64); secret64.set(seed); secret64.set(kp.publicKey,32);
-      address=encodeBase58(kp.publicKey); privateKey=encodeBase58(secret64);
+      // Use nacl if available, otherwise use a one-shot worker
+      if(window.nacl?.sign){
+        const kp=window.nacl.sign.keyPair.fromSeed(seed);
+        const secret64=new Uint8Array(64); secret64.set(seed); secret64.set(kp.publicKey,32);
+        address=encodeBase58(kp.publicKey); privateKey=encodeBase58(secret64);
+      } else {
+        // Delegate to worker which has nacl loaded
+        const result = await generateViaWorker('solana', null, null, 'prefix', 1, seed);
+        address=result.address; privateKey=result.privateKey;
+      }
     } else {
-      // EVM — ethers gives correct 0x private key directly
-      if(!ethers) throw new Error('ethers not loaded — refresh');
-      const w=ethers.Wallet.createRandom(); address=w.address; privateKey=w.privateKey;
+      // EVM — use the same inline secp256k1 from the worker via a quick one-shot
+      const result = await generateViaWorker('evm', null, null, 'prefix', 1);
+      address=result.address; privateKey=result.privateKey;
     }
 
     document.getElementById('freeAddress').textContent=address;
@@ -709,9 +706,29 @@ function evmAddrHex(privBytes){
 // ── Main loop ─────────────────────────────────────────────────────────────────
 self.onmessage=({data})=>{
   const{network,pattern,position,maxAttempts}=data;
+  const isEVM=network==='evm'||network==='base'||network==='optimism'||network==='allevm';
+
+  // One-shot mode: just generate a single keypair and return it immediately
+  if(data.oneShot){
+    let address,privateKey;
+    if(!isEVM){
+      const seed = data.seedOverride ? new Uint8Array(data.seedOverride) : new Uint8Array(32);
+      if(!data.seedOverride) crypto.getRandomValues(seed);
+      const kp=nacl.sign.keyPair.fromSeed(seed);
+      const s64=new Uint8Array(64); s64.set(seed); s64.set(kp.publicKey,32);
+      address=b58(kp.publicKey); privateKey=b58(s64);
+    } else {
+      crypto.getRandomValues(_prv);
+      const check=evmAddrHex(_prv);
+      address='0x'+check;
+      privateKey='0x'+Array.from(_prv).map(b=>HEX[b]).join('');
+    }
+    self.postMessage({type:'oneshot',address,privateKey,attempts:1});
+    return;
+  }
+
   const pat=pattern.toLowerCase();
   const suf=(data.patSuffix||'').toLowerCase();
-  const isEVM=network==='evm'||network==='base'||network==='optimism'||network==='allevm';
   const CHUNK=isEVM?120:8000;
   let count=0;
 
@@ -759,6 +776,22 @@ self.onmessage=({data})=>{
   run();
 };
 `;
+
+// ── Single one-shot worker for free wallet generation ────────────────────────
+function generateViaWorker(network, pattern, patSuffix, position, maxAttempts, seedOverride) {
+  return new Promise((resolve, reject) => {
+    const blob = new Blob([WORKER_CODE], {type:'application/javascript'});
+    const w = new Worker(URL.createObjectURL(blob));
+    w.postMessage({ network, pattern: pattern||'a', patSuffix: patSuffix||'', position: position||'prefix', maxAttempts: maxAttempts||1, oneShot: true, seedOverride: seedOverride ? Array.from(seedOverride) : null });
+    w.onmessage = ({data:msg}) => {
+      if(msg.type==='found'||msg.type==='oneshot'){ w.terminate(); resolve(msg); }
+      else if(msg.type==='exhausted'){ w.terminate(); reject(new Error('Generation failed')); }
+    };
+    w.onerror = e => { w.terminate(); reject(e); };
+    // Timeout safety
+    setTimeout(() => { w.terminate(); reject(new Error('Timeout')); }, 10000);
+  });
+}
 
 // ── Parallel worker pool ─────────────────────────────────────────────────────
 // Detect core count — cap at 6 to avoid thrashing low-end phones
