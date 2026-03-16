@@ -6,12 +6,12 @@
 <title>VanityGen Ultimate</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <!-- Plausible Analytics — privacy-friendly, no cookies, GDPR compliant -->
-<script defer data-domain="vanitygen.netlify.app" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="emmzii.github.io" src="https://plausible.io/js/script.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0a0f;--surface:#111118;--card:#16161f;--border:#ffffff12;--accent:#00f5c4;--accent2:#7b61ff;--warn:#ff6b35;--text:#e8e8f0;--muted:#6b6b80;--success:#00e676;--r:14px}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden}
+html,body{background:var(--bg);color:var(--text);font-size:inherit;min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;animation:gridDrift 20s linear infinite}
 @keyframes gridDrift{from{background-position:0 0}to{background-position:40px 40px}}
 body::after{content:'';position:fixed;top:-40%;left:-20%;width:80vw;height:80vw;background:radial-gradient(circle,#7b61ff18 0%,transparent 70%);pointer-events:none;z-index:0;animation:orb 12s ease-in-out infinite alternate}
@@ -23,7 +23,7 @@ body::after{content:'';position:fixed;top:-40%;left:-20%;width:80vw;height:80vw;
 .tg-user{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:6px 12px 6px 6px;font-size:13px;color:var(--muted)}
 .tg-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white}
 .tier-tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:4px;margin-bottom:20px;gap:4px}
-.tier-tab{padding:10px;border-radius:10px;border:none;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;transition:all .2s;background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px}
+.tier-tab{padding:10px;border-radius:10px;border:none;cursor:pointer;font-size:inherit;font-weight:700;font-size:13px;transition:all .2s;background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px}
 .tier-tab.active{background:var(--card);color:var(--text);box-shadow:0 2px 12px #00000040}
 .tier-tab.active.vanity{color:var(--accent)}
 .badge{background:var(--accent2);color:white;font-size:9px;padding:2px 6px;border-radius:50px;letter-spacing:.5px}
@@ -31,7 +31,7 @@ body::after{content:'';position:fixed;top:-40%;left:-20%;width:80vw;height:80vw;
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent2),transparent);opacity:.4}
 .card-title{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
 .network-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.net-btn{padding:12px 10px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;transition:all .15s}
+.net-btn{padding:12px 10px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:inherit;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;transition:all .15s}
 .net-btn:active{transform:scale(.97)}
 .net-btn.selected{border-color:var(--accent);background:#00f5c415;color:var(--accent)}
 .net-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
@@ -53,13 +53,13 @@ input[type=text]::placeholder{color:var(--muted)}
 .speed-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
 .speed-label{font-size:11px;color:var(--muted)}
 .speed-val{font-size:11px;font-family:'Space Mono',monospace;color:var(--accent);font-weight:700}
-.btn-primary{width:100%;padding:16px;border-radius:var(--r);border:none;cursor:pointer;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;position:relative;overflow:hidden;transition:transform .1s,opacity .2s;background:linear-gradient(135deg,var(--accent2),#a855f7);color:white}
+.btn-primary{width:100%;padding:16px;border-radius:var(--r);border:none;cursor:pointer;font-size:inherit;font-weight:800;font-size:15px;position:relative;overflow:hidden;transition:transform .1s,opacity .2s;background:linear-gradient(135deg,var(--accent2),#a855f7);color:white}
 .btn-primary.free-tier{background:linear-gradient(135deg,#334155,#475569)}
 .btn-primary:active{transform:scale(.98)}
 .btn-primary:disabled{opacity:.5;cursor:not-allowed}
 .btn-shine{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,#ffffff20 50%,transparent 60%);transform:translateX(-100%);animation:shine 3s infinite}
 @keyframes shine{0%{transform:translateX(-100%)}30%{transform:translateX(100%)}100%{transform:translateX(100%)}}
-.btn-stop{width:100%;padding:14px;border-radius:var(--r);border:1px solid var(--warn);background:#ff6b3515;color:var(--warn);font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;margin-top:10px}
+.btn-stop{width:100%;padding:14px;border-radius:var(--r);border:1px solid var(--warn);background:#ff6b3515;color:var(--warn);font-size:inherit;font-weight:700;font-size:14px;cursor:pointer;margin-top:10px}
 .progress-card{display:none;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:14px;text-align:center}
 .progress-card.visible{display:block}
 .progress-spinner{width:48px;height:48px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}
@@ -74,7 +74,7 @@ input[type=text]::placeholder{color:var(--muted)}
 .result-address{font-family:'Space Mono',monospace;font-size:12px;color:var(--success);word-break:break-all;line-height:1.6;background:#00e67610;border:1px solid #00e67620;border-radius:8px;padding:10px 12px;margin-bottom:10px}
 .result-key{font-family:'Space Mono',monospace;font-size:11px;color:var(--warn);word-break:break-all;line-height:1.6;background:#ff6b3510;border:1px solid #ff6b3520;border-radius:8px;padding:10px 12px;margin-bottom:10px;filter:blur(4px);cursor:pointer;transition:filter .3s;user-select:none}
 .result-key.revealed{filter:none}
-.copy-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-family:'Syne',sans-serif;font-weight:700;font-size:12px;cursor:pointer;margin-bottom:6px;transition:all .15s}
+.copy-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:inherit;font-weight:700;font-size:12px;cursor:pointer;margin-bottom:6px;transition:all .15s}
 .copy-btn:active{background:var(--accent2);color:white;border-color:var(--accent2)}
 .copy-btn.copied{background:var(--success);color:#000;border-color:var(--success)}
 .result-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
@@ -100,7 +100,7 @@ input[type=text]::placeholder{color:var(--muted)}
 .free-text strong{color:var(--text)}
 #loadingOverlay{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .4s}
 #loadingOverlay.hidden{opacity:0;pointer-events:none}
-.loading-logo{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.loading-logo{font-size:inherit;font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .loading-bar-wrap{width:160px;height:3px;background:var(--surface);border-radius:3px;overflow:hidden}
 .loading-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;animation:loadBar 1.5s ease-in-out infinite}
 @keyframes loadBar{0%{width:0%}50%{width:80%}100%{width:100%}}
@@ -254,7 +254,7 @@ input[type=text]::placeholder{color:var(--muted)}
       <canvas id="dnaCanvasVanity" height="80"></canvas>
       <div class="dna-traits" id="vanityDNATraits"></div>
     </div>
-    <button id="btnMintNFT" onclick="mintNFT()" style="display:none;width:100%;padding:16px;border-radius:14px;border:none;cursor:pointer;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;background:linear-gradient(135deg,#7b61ff,#00f5c4);color:white;margin-top:4px">🎨 Mint as NFT</button>
+    <button id="btnMintNFT" onclick="mintNFT()" style="display:none;width:100%;padding:16px;border-radius:14px;border:none;cursor:pointer;font-size:inherit;font-weight:800;font-size:15px;background:linear-gradient(135deg,#7b61ff,#00f5c4);color:white;margin-top:4px">🎨 Mint as NFT</button>
   </div>
 
   <!-- NFT PANEL -->
@@ -283,7 +283,7 @@ input[type=text]::placeholder{color:var(--muted)}
     <!-- Hero banner -->
     <div style="background:linear-gradient(135deg,#00f5c415,#7b61ff15);border:1px solid #00f5c440;border-radius:14px;padding:22px;margin-bottom:14px;text-align:center">
       <div style="font-size:36px;margin-bottom:8px">🔒</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:18px;background:linear-gradient(135deg,#00f5c4,#7b61ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Your Keys. Your Wallet. Always.</div>
+      <div style="font-size:inherit;font-weight:800;font-size:18px;background:linear-gradient(135deg,#00f5c4,#7b61ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Your Keys. Your Wallet. Always.</div>
       <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6">VanityGen is built on a simple principle — we never see, store, or touch your private keys. Ever.</div>
     </div>
 
@@ -292,7 +292,7 @@ input[type=text]::placeholder{color:var(--muted)}
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="font-size:28px;min-width:36px">🖥️</div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Everything runs on YOUR device</div>
+          <div style="font-size:inherit;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Everything runs on YOUR device</div>
           <div style="font-size:12px;color:var(--muted);line-height:1.7">Every wallet generated here — Solana or EVM — is created entirely inside your browser using your device's own CPU. No data is sent to any server during generation. The cryptography runs locally in a Web Worker thread, completely offline.</div>
         </div>
       </div>
@@ -303,7 +303,7 @@ input[type=text]::placeholder{color:var(--muted)}
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="font-size:28px;min-width:36px">🙈</div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Admins cannot see your private key</div>
+          <div style="font-size:inherit;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Admins cannot see your private key</div>
           <div style="font-size:12px;color:var(--muted);line-height:1.7">Private keys are generated in your browser and displayed only to you. They are never transmitted to our servers, never logged, and never stored anywhere outside your screen. Not even the developers of this tool can access them — it is technically impossible.</div>
         </div>
       </div>
@@ -314,7 +314,7 @@ input[type=text]::placeholder{color:var(--muted)}
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="font-size:28px;min-width:36px">📖</div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Open and verifiable</div>
+          <div style="font-size:inherit;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Open and verifiable</div>
           <div style="font-size:12px;color:var(--muted);line-height:1.7">This is a single HTML file. Anyone can right-click → View Page Source and read every line of code. There are no hidden scripts, no external API calls during wallet generation, and no obfuscated code. You can verify this yourself in under a minute.</div>
         </div>
       </div>
@@ -325,7 +325,7 @@ input[type=text]::placeholder{color:var(--muted)}
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="font-size:28px;min-width:36px">🔑</div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Real cryptography, not fake</div>
+          <div style="font-size:inherit;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Real cryptography, not fake</div>
           <div style="font-size:12px;color:var(--muted);line-height:1.7">Solana wallets use Ed25519 keypairs via the industry-standard TweetNaCl library. EVM wallets use secp256k1 — the exact same algorithm used by MetaMask, Ledger, and every major Ethereum wallet. Your generated address is fully compatible with Phantom, Solflare, MetaMask, Rabby, and any other wallet app.</div>
         </div>
       </div>
@@ -336,7 +336,7 @@ input[type=text]::placeholder{color:var(--muted)}
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="font-size:28px;min-width:36px">⚡</div>
         <div>
-          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Why vanity addresses are safe</div>
+          <div style="font-size:inherit;font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px">Why vanity addresses are safe</div>
           <div style="font-size:12px;color:var(--muted);line-height:1.7">A vanity address is just a regular wallet whose address happens to start or end with characters you chose. The private key is generated with the same randomness as any other wallet. The pattern search only selects which keypair to show you — it does not weaken the security of the key in any way.</div>
         </div>
       </div>
@@ -344,7 +344,7 @@ input[type=text]::placeholder{color:var(--muted)}
 
     <!-- Best practices -->
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:14px">
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--text);margin-bottom:12px;letter-spacing:.5px">✅ BEST PRACTICES</div>
+      <div style="font-size:inherit;font-weight:700;font-size:13px;color:var(--text);margin-bottom:12px;letter-spacing:.5px">✅ BEST PRACTICES</div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#00f5c4;font-size:16px;min-width:20px">•</span><span style="font-size:12px;color:var(--muted);line-height:1.6">Copy your private key immediately after generation and store it in a password manager or offline.</span></div>
         <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#00f5c4;font-size:16px;min-width:20px">•</span><span style="font-size:12px;color:var(--muted);line-height:1.6">Never share your private key with anyone, including support staff. No legitimate service will ever ask for it.</span></div>
@@ -366,8 +366,7 @@ input[type=text]::placeholder{color:var(--muted)}
 </div>
 
 <!-- Load crypto libs (needed for free-tier instant gen + EVM vanity) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl-fast.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+<!-- crypto runs in workers only — no CDN blocking main thread -->
 
 <script>
 // ─── Telegram init ────────────────────────────────────────────────────────────
@@ -386,20 +385,12 @@ let activeWorkers = [];   // parallel worker pool
 let searchDone = false;   // flag so only first winner is handled
 let searchStart = 0, lastCount = 0;
 
-// ─── Wait for libs ────────────────────────────────────────────────────────────
+// ─── Loading overlay — dismiss immediately, all crypto is in workers ──────────
 window.addEventListener('load', () => {
-  let t = 0;
-  const iv = setInterval(() => {
-    t++;
-    const ok = window.nacl?.sign && window.ethers?.Wallet;
-    if (ok || t > 40) {
-      clearInterval(iv);
-      document.getElementById('loadingOverlay').classList.add('hidden');
-      if (!ok) {
-        document.getElementById('loadingSub').textContent = '⚠️ Refresh if crypto fails';
-      }
-    }
-  }, 150);
+  // Small delay just for the loading animation to feel intentional
+  setTimeout(() => {
+    document.getElementById('loadingOverlay').classList.add('hidden');
+  }, 600);
 });
 
 // ─── Base58 ───────────────────────────────────────────────────────────────────
@@ -557,20 +548,26 @@ async function generateFree() {
   await new Promise(r=>setTimeout(r,30));
 
   try {
-    const nacl=window.nacl, ethers=window.ethers;
-    if(!nacl) throw new Error('nacl not loaded — refresh');
     let address,privateKey,net=selectedNetwork;
+    const isEVM = net==='evm'||net==='base'||net==='optimism'||net==='allevm';
 
-    if(net==='solana'){
+    if(!isEVM){
+      // Solana — pure WebCrypto, no external libs needed
       const seed=new Uint8Array(32); crypto.getRandomValues(seed);
-      const kp=nacl.sign.keyPair.fromSeed(seed);
-      // Full 64-byte secret key = seed + publicKey — required by Phantom/Solflare
-      const secret64=new Uint8Array(64); secret64.set(seed); secret64.set(kp.publicKey,32);
-      address=encodeBase58(kp.publicKey); privateKey=encodeBase58(secret64);
+      // Use nacl if available, otherwise use a one-shot worker
+      if(window.nacl?.sign){
+        const kp=window.nacl.sign.keyPair.fromSeed(seed);
+        const secret64=new Uint8Array(64); secret64.set(seed); secret64.set(kp.publicKey,32);
+        address=encodeBase58(kp.publicKey); privateKey=encodeBase58(secret64);
+      } else {
+        // Delegate to worker which has nacl loaded
+        const result = await generateViaWorker('solana', null, null, 'prefix', 1, seed);
+        address=result.address; privateKey=result.privateKey;
+      }
     } else {
-      // EVM — ethers gives correct 0x private key directly
-      if(!ethers) throw new Error('ethers not loaded — refresh');
-      const w=ethers.Wallet.createRandom(); address=w.address; privateKey=w.privateKey;
+      // EVM — use the same inline secp256k1 from the worker via a quick one-shot
+      const result = await generateViaWorker('evm', null, null, 'prefix', 1);
+      address=result.address; privateKey=result.privateKey;
     }
 
     document.getElementById('freeAddress').textContent=address;
@@ -709,9 +706,29 @@ function evmAddrHex(privBytes){
 // ── Main loop ─────────────────────────────────────────────────────────────────
 self.onmessage=({data})=>{
   const{network,pattern,position,maxAttempts}=data;
+  const isEVM=network==='evm'||network==='base'||network==='optimism'||network==='allevm';
+
+  // One-shot mode: just generate a single keypair and return it immediately
+  if(data.oneShot){
+    let address,privateKey;
+    if(!isEVM){
+      const seed = data.seedOverride ? new Uint8Array(data.seedOverride) : new Uint8Array(32);
+      if(!data.seedOverride) crypto.getRandomValues(seed);
+      const kp=nacl.sign.keyPair.fromSeed(seed);
+      const s64=new Uint8Array(64); s64.set(seed); s64.set(kp.publicKey,32);
+      address=b58(kp.publicKey); privateKey=b58(s64);
+    } else {
+      crypto.getRandomValues(_prv);
+      const check=evmAddrHex(_prv);
+      address='0x'+check;
+      privateKey='0x'+Array.from(_prv).map(b=>HEX[b]).join('');
+    }
+    self.postMessage({type:'oneshot',address,privateKey,attempts:1});
+    return;
+  }
+
   const pat=pattern.toLowerCase();
   const suf=(data.patSuffix||'').toLowerCase();
-  const isEVM=network==='evm'||network==='base'||network==='optimism'||network==='allevm';
   const CHUNK=isEVM?120:8000;
   let count=0;
 
@@ -759,6 +776,22 @@ self.onmessage=({data})=>{
   run();
 };
 `;
+
+// ── Single one-shot worker for free wallet generation ────────────────────────
+function generateViaWorker(network, pattern, patSuffix, position, maxAttempts, seedOverride) {
+  return new Promise((resolve, reject) => {
+    const blob = new Blob([WORKER_CODE], {type:'application/javascript'});
+    const w = new Worker(URL.createObjectURL(blob));
+    w.postMessage({ network, pattern: pattern||'a', patSuffix: patSuffix||'', position: position||'prefix', maxAttempts: maxAttempts||1, oneShot: true, seedOverride: seedOverride ? Array.from(seedOverride) : null });
+    w.onmessage = ({data:msg}) => {
+      if(msg.type==='found'||msg.type==='oneshot'){ w.terminate(); resolve(msg); }
+      else if(msg.type==='exhausted'){ w.terminate(); reject(new Error('Generation failed')); }
+    };
+    w.onerror = e => { w.terminate(); reject(e); };
+    // Timeout safety
+    setTimeout(() => { w.terminate(); reject(new Error('Timeout')); }, 10000);
+  });
+}
 
 // ── Parallel worker pool ─────────────────────────────────────────────────────
 // Detect core count — cap at 6 to avoid thrashing low-end phones
@@ -960,6 +993,7 @@ function saveAnalytics(data) {
 // 3. Install the ntfy app on your phone and subscribe to that topic
 // 4. Replace the value below with your topic name
 const NTFY_TOPIC = 'vanitygen-zii-2025'; // ← change this to your unique topic
+const PAYMENT_WALLET = '9Hcu7mTnDdtHbCSbAriaZ9jAhpKcQVyPe67gxVK75vRQ'; // ← same as bot.js — your USDT/USDC address
 
 function pingAdmin(title, body, tags) {
   if (!NTFY_TOPIC || NTFY_TOPIC === 'your-unique-topic-here') return;
@@ -1032,12 +1066,100 @@ trackVisit();
 
 function mintNFT() {
   if (!lastVanityResult) return;
+  showMintModal();
+}
+
+function showMintModal() {
+  const existing = document.getElementById('mintModal');
+  if (existing) existing.remove();
+
+  const { address, network, pattern, rarity } = lastVanityResult;
+  const price = parseFloat((rarity / 10 * 0.1).toFixed(2));
+  const isSol  = network === 'solana';
+
+  // Chain-specific config
+  const walletDot  = isSol ? '#9945FF' : '#627EEA';
+  const walletLabel= isSol ? 'Your Solana wallet address' : 'Your EVM wallet address';
+  const walletDesc = isSol
+    ? 'Buyers will send SOL directly to this address.'
+    : 'Buyers will send USDT/USDC on EVM directly to this address.';
+  const walletPH   = isSol ? 'Your SOL wallet (e.g. 7xKX...)' : '0x... your EVM wallet';
+  const currency   = isSol ? 'SOL' : 'USDT (EVM)';
+
+  const modal = document.createElement('div');
+  modal.id = 'mintModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:#000000cc;z-index:9999;display:flex;align-items:flex-end;justify-content:center';
+
+  const inner = document.createElement('div');
+  inner.style.cssText = 'width:100%;max-width:480px;background:#16161f;border-radius:20px 20px 0 0;padding:24px;border-top:1px solid #ffffff15';
+
+  inner.innerHTML = [
+    '<div style="width:40px;height:4px;background:#ffffff30;border-radius:2px;margin:0 auto 20px"></div>',
+
+    // Title
+    '<div style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:4px">🎨 Mint as NFT</div>',
+    '<div style="font-size:12px;color:var(--muted);margin-bottom:18px">',
+      network.toUpperCase(), ' · Pattern: ', pattern,
+      ' · Rarity: <b style="color:', rarityColor(rarity), '">', rarity, '/999</b>',
+    '</div>',
+
+    // Price
+    '<div style="background:linear-gradient(135deg,#7b61ff15,#00f5c415);border:1px solid #7b61ff40;border-radius:10px;padding:12px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center">',
+      '<div style="font-size:12px;color:var(--muted)">Listing price</div>',
+      '<div style="font-size:20px;font-weight:800;color:var(--accent)">$', price,
+        ' <span style="font-size:11px;font-weight:400;color:var(--muted)">', currency, '</span>',
+      '</div>',
+    '</div>',
+
+    // Wallet label
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">',
+      '<div style="width:10px;height:10px;border-radius:50%;background:', walletDot, '"></div>',
+      '<div style="font-size:12px;font-weight:700;color:var(--text)">', walletLabel, '</div>',
+    '</div>',
+    '<div style="font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.6">',
+      walletDesc, ' Payment currency: <b style="color:var(--text)">', currency, '</b>',
+    '</div>',
+    '<input id="minterWalletInput" type="text" placeholder="', walletPH, '"',
+      ' style="width:100%;padding:12px;border-radius:10px;background:#111118;border:1px solid #ffffff20;',
+      'color:var(--text);font-size:11px;margin-bottom:4px;box-sizing:border-box;font-family:monospace"',
+      ' autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">',
+    '<div style="font-size:10px;color:var(--muted);margin-bottom:20px">You can update this later from your NFT collection</div>',
+
+    // Buttons
+    '<div style="display:flex;gap:10px">',
+      '<button onclick="closeMintModal()" style="flex:1;padding:14px;border-radius:10px;',
+        'background:var(--card);border:1px solid var(--border);color:var(--muted);',
+        'font-size:13px;font-weight:700;cursor:pointer">Cancel</button>',
+      '<button onclick="confirmMint()" style="flex:2;padding:14px;border-radius:10px;border:none;',
+        'cursor:pointer;font-size:13px;font-weight:800;',
+        'background:linear-gradient(135deg,#7b61ff,#00f5c4);color:white">🎨 Confirm Mint</button>',
+    '</div>'
+  ].join('');
+
+  modal.appendChild(inner);
+  modal.addEventListener('click', e => { if (e.target === modal) closeMintModal(); });
+  document.body.appendChild(modal);
+}
+function closeMintModal() {
+  const m = document.getElementById('mintModal');
+  if (m) m.remove();
+}
+
+function confirmMint() {
+  if (!lastVanityResult) return;
+  const walletInput = (document.getElementById('minterWalletInput').value || '').trim();
+
+  // Wallet is optional — if blank, mark as "contact seller"
+  const minterWallet = walletInput || null;
+
   const { address, privateKey, network, pattern, rarity } = lastVanityResult;
   const price = parseFloat((rarity / 10 * 0.1).toFixed(2));
 
-  // Always store locally first — survives refresh, shows in NFT tab immediately
+  closeMintModal();
+
   const id = nftIdCounter++;
-  const nft = { id, address, privateKey, network, pattern, rarity, price, forSale: true, ts: Date.now() };
+  const paymentCurrency = (network === 'solana') ? 'SOL' : 'USDT (EVM)';
+  const nft = { id, address, privateKey, network, pattern, rarity, price, forSale: true, minterWallet, paymentCurrency, ts: Date.now() };
   localNFTs.push(nft);
   saveNFTs(localNFTs);
 
@@ -1046,15 +1168,10 @@ function mintNFT() {
 
   trackEvent('nft_mint', { network, pattern, rarity, price });
   if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
-
-  // Also ping the bot if inside Telegram Mini App
-  // Note: sendData closes the app so we use pingAdmin (fetch) instead
-  pingAdmin('🎨 NFT Minted', 'Network: ' + network + ' | Address: ' + address.slice(0,20) + '... | Pattern: ' + pattern + ' | Rarity: ' + rarity + '/999 | Price: $' + price, 'art');
+  pingAdmin('🎨 NFT Minted', 'Network: ' + network + ' | Pattern: ' + pattern + ' | Rarity: ' + rarity + '/999 | Price: $' + price + (minterWallet ? ' | Seller wallet: ' + minterWallet : ''), 'art');
 
   showMintSuccess(rarity, price);
   renderNFTs();
-
-  // Auto-switch to NFT tab so user sees it immediately
   switchTier('nft');
 }
 
@@ -1068,34 +1185,53 @@ function showMintSuccess(rarity, price) {
   setTimeout(() => confirm.remove(), 6000);
 }
 
-function renderNFTs() {
-  const list = document.getElementById('nftList');
-  const market = document.getElementById('marketList');
-  if (!localNFTs.length) {
-    list.innerHTML = '<span style="color:var(--muted)">No NFTs yet. Generate a vanity address and mint it!</span>';
-    market.innerHTML = '<span style="color:var(--muted)">No NFTs listed yet.</span>';
-    return;
-  }
-  list.innerHTML = localNFTs.map(n =>
-    '<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:10px">' +
-    '<div style="font-weight:700;color:var(--accent)">NFT #' + n.id + ' &mdash; ' + n.network + '</div>' +
-    '<div style="font-family:monospace;font-size:11px;color:var(--text);word-break:break-all;margin:4px 0">' + n.address.slice(0,22) + '...</div>' +
-    '<div style="font-size:12px;color:var(--muted)">Pattern: ' + n.pattern + ' &nbsp;|&nbsp; Rarity: ' + n.rarity + '/999 &nbsp;|&nbsp; $' + n.price + '</div>' +
-    '<div style="font-size:11px;margin-top:6px;color:' + (n.forSale?'var(--success)':'var(--warn)') + '">' + (n.forSale ? '🟢 For Sale' : '🔴 Not Listed') + '</div>' +
-    '<button onclick="toggleSale(' + n.id + ')" style="margin-top:8px;padding:4px 10px;border-radius:6px;background:var(--card);border:1px solid var(--border);color:var(--text);font-size:11px;cursor:pointer">' + (n.forSale ? 'Delist' : 'List for Sale') + '</button>' +
-    '</div>'
-  ).join('');
+function rarityColor(r){ return r>=800?'#FFD700':r>=600?'#00f5c4':r>=400?'#7b61ff':'var(--muted)'; }
 
+function renderNFTs() {
+  const list   = document.getElementById('nftList');
+  const market = document.getElementById('marketList');
+
+  // ── My Collection ──────────────────────────────────────────────────────────
+  if (!localNFTs.length) {
+    list.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted);font-size:13px">No NFTs yet.<br>Generate a vanity address and tap <b>🎨 Mint as NFT</b></div>';
+  } else {
+    list.innerHTML = localNFTs.map(n =>
+      '<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">' +
+          '<div style="font-size:inherit;font-weight:700;font-size:13px;color:var(--text)">NFT #' + n.id + ' · ' + n.network.toUpperCase() + '</div>' +
+          '<div style="font-size:11px;font-weight:700;color:' + rarityColor(n.rarity) + '">' + n.rarity + '/999</div>' +
+        '</div>' +
+        '<div style="font-family:monospace;font-size:10px;color:var(--muted);word-break:break-all;margin-bottom:8px">' + n.address + '</div>' +
+        '<div style="display:flex;justify-content:space-between;align-items:center">' +
+          '<div style="font-size:11px;color:var(--muted)">Pattern: <b style="color:var(--text)">' + n.pattern + '</b></div>' +
+          '<div style="font-size:13px;font-weight:700;color:var(--accent)">$' + n.price + '</div>' +
+        '</div>' +
+        '<div style="display:flex;gap:8px;margin-top:10px">' +
+          '<div style="flex:1;text-align:center;padding:6px;border-radius:8px;font-size:11px;font-weight:700;color:' + (n.forSale?'#00e676':'var(--warn)') + ';background:' + (n.forSale?'#00e67615':'#ff6b3515') + ';border:1px solid ' + (n.forSale?'#00e67640':'#ff6b3540') + '">' + (n.forSale?'🟢 Listed':'🔴 Unlisted') + '</div>' +
+          '<button onclick="toggleSale(' + n.id + ')" style="flex:1;padding:6px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--text);font-size:11px;cursor:pointer;font-weight:600">' + (n.forSale?'Delist':'List for Sale') + '</button>' +
+          '<button onclick="editPayWallet(' + n.id + ')" style="flex:1;padding:6px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:11px;cursor:pointer" title="Set payment wallet">💳 Wallet</button>' +
+        '</div>' +
+      '</div>'
+    ).join('');
+  }
+
+  // ── Marketplace ────────────────────────────────────────────────────────────
   const forSale = localNFTs.filter(n => n.forSale);
   if (!forSale.length) {
-    market.innerHTML = '<span style="color:var(--muted)">No NFTs listed yet.</span>';
+    market.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted);font-size:13px">No NFTs listed yet.<br>Mint one and list it for sale!</div>';
   } else {
     market.innerHTML = forSale.map(n =>
-      '<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:10px">' +
-      '<div style="font-weight:700;color:var(--accent2)">NFT #' + n.id + ' &mdash; ' + n.network + '</div>' +
-      '<div style="font-family:monospace;font-size:11px;word-break:break-all;margin:4px 0">' + n.address.slice(0,22) + '...</div>' +
-      '<div style="font-size:12px;color:var(--muted)">Rarity: ' + n.rarity + '/999</div>' +
-      '<div style="font-size:14px;font-weight:700;color:var(--accent);margin-top:4px">$' + n.price + ' USDT</div>' +
+      '<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">' +
+          '<div style="font-size:inherit;font-weight:700;font-size:13px;color:var(--text)">NFT #' + n.id + ' · ' + n.network.toUpperCase() + '</div>' +
+          '<div style="font-size:11px;font-weight:700;color:' + rarityColor(n.rarity) + '">' + n.rarity + '/999</div>' +
+        '</div>' +
+        '<div style="font-family:monospace;font-size:10px;color:var(--muted);word-break:break-all;margin-bottom:8px">' + n.address + '</div>' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">' +
+          '<div style="font-size:11px;color:var(--muted)">Pattern: <b style="color:var(--text)">' + n.pattern + '</b></div>' +
+          '<div style="font-size:16px;font-weight:800;color:var(--accent)">$' + n.price + ' <span style="font-size:11px;font-weight:400;color:var(--muted)">' + (n.paymentCurrency || (n.network==='solana'?'SOL':'USDT')) + '</span></div>' +
+        '</div>' +
+        '<button onclick="showBuyModal(' + n.id + ')" style="width:100%;padding:12px;border-radius:10px;border:none;cursor:pointer;font-size:inherit;font-weight:800;font-size:13px;background:linear-gradient(135deg,#7b61ff,#00f5c4);color:white">🛒 Buy This NFT</button>' +
       '</div>'
     ).join('');
   }
@@ -1104,6 +1240,135 @@ function renderNFTs() {
 function toggleSale(id) {
   const nft = localNFTs.find(n => n.id === id);
   if (nft) { nft.forSale = !nft.forSale; saveNFTs(localNFTs); renderNFTs(); }
+}
+
+function editPayWallet(id) {
+  const nft = localNFTs.find(n => n.id === id);
+  if (!nft) return;
+  const current = nft.minterWallet || '';
+  const isSol = nft.network === 'solana';
+  const promptLabel = isSol
+    ? 'Enter your Solana wallet address:\n\nBuyers will send SOL payment directly here.'
+    : 'Enter your EVM wallet address:\n\nBuyers will send USDT/USDC payment directly here.';
+  const newWallet = prompt(promptLabel, current);
+  if (newWallet === null) return; // cancelled
+  nft.minterWallet = newWallet.trim() || null;
+  saveNFTs(localNFTs);
+  renderNFTs();
+  if (nft.minterWallet) {
+    showToast('✅ Payment wallet updated');
+  }
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#16161f;border:1px solid #00f5c440;color:var(--accent);padding:12px 20px;border-radius:12px;font-size:13px;font-weight:700;z-index:9999;white-space:nowrap;box-shadow:0 8px 24px #00000060';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+// ── Buy Modal ──────────────────────────────────────────────────────────────────
+function showBuyModal(id) {
+  const nft = localNFTs.find(n => n.id === id);
+  if (!nft) return;
+
+  // Remove any existing modal
+  const existing = document.getElementById('buyModal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'buyModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:#000000cc;z-index:9999;display:flex;align-items:flex-end;justify-content:center;padding:0';
+
+  modal.innerHTML =
+    '<div style="width:100%;max-width:480px;background:#16161f;border-radius:20px 20px 0 0;padding:24px;border-top:1px solid #ffffff15;max-height:90vh;overflow-y:auto">' +
+      // Handle bar
+      '<div style="width:40px;height:4px;background:#ffffff30;border-radius:2px;margin:0 auto 20px"></div>' +
+
+      // Header
+      '<div style="font-size:inherit;font-weight:800;font-size:18px;color:var(--text);margin-bottom:4px">🛒 Buy NFT #' + nft.id + '</div>' +
+      '<div style="font-size:12px;color:var(--muted);margin-bottom:18px">' + nft.network.toUpperCase() + ' · Pattern: ' + nft.pattern + ' · Rarity: ' + nft.rarity + '/999</div>' +
+
+      // Address preview
+      '<div style="background:#111118;border:1px solid #ffffff12;border-radius:10px;padding:12px;margin-bottom:16px">' +
+        '<div style="font-size:10px;color:var(--muted);margin-bottom:4px;letter-spacing:1px">VANITY ADDRESS</div>' +
+        '<div style="font-family:monospace;font-size:11px;color:var(--accent);word-break:break-all">' + nft.address + '</div>' +
+      '</div>' +
+
+      // Price + steps
+      '<div style="background:linear-gradient(135deg,#7b61ff15,#00f5c415);border:1px solid #7b61ff40;border-radius:10px;padding:14px;margin-bottom:16px">' +
+        '<div style="font-size:22px;font-weight:800;color:var(--accent);margin-bottom:4px">$' + nft.price + ' <span style="font-size:13px">' + (nft.paymentCurrency || (nft.network==='solana'?'SOL':'USDT')) + '</span></div>' +
+        '<div style="font-size:11px;color:var(--muted)">Send exact amount to seller's wallet</div>' +
+      '</div>' +
+
+      // Step 1 — payment wallet
+      '<div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">Step 1 — Send payment to this wallet:</div>' +
+      '<div style="background:#111118;border:1px solid #ffffff12;border-radius:10px;padding:12px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;gap:8px">' +
+        '<div style="font-family:monospace;font-size:10px;color:var(--text);word-break:break-all;flex:1" id="payWalletAddr">' + (nft.minterWallet || (PAYMENT_WALLET !== 'YOUR_USDT_WALLET_HERE' ? PAYMENT_WALLET : '⚠️ Seller has not provided a payment address — contact them directly')) + '</div>' +
+        '<button onclick="copyPayWallet()" style="padding:6px 10px;border-radius:7px;background:#7b61ff30;border:1px solid #7b61ff60;color:#7b61ff;font-size:11px;cursor:pointer;white-space:nowrap" id="copyPayBtn">📋 Copy</button>' +
+      '</div>' +
+      '<div style="font-size:10px;color:var(--muted);margin-bottom:16px">Pay in: <b>' + (nft.paymentCurrency || (nft.network==='solana'?'SOL':'USDT (EVM)')) + '</b></div>' +
+
+      // Step 2 — tx hash input
+      '<div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">Step 2 — Paste your transaction hash:</div>' +
+      '<input id="txHashInput" type="text" placeholder="0x... or your TX hash" style="width:100%;padding:12px;border-radius:10px;background:#111118;border:1px solid #ffffff20;color:var(--text);font-family:monospace;font-size:11px;margin-bottom:4px;box-sizing:border-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">' +
+      '<div style="font-size:10px;color:var(--muted);margin-bottom:20px">Found in your wallet app after sending</div>' +
+
+      // Buttons
+      '<div style="display:flex;gap:10px">' +
+        '<button onclick="closeBuyModal()" style="flex:1;padding:14px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer">Cancel</button>' +
+        '<button onclick="submitBuy(' + nft.id + ')" style="flex:2;padding:14px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:800;background:linear-gradient(135deg,#7b61ff,#00f5c4);color:white">Submit Purchase</button>' +
+      '</div>' +
+    '</div>';
+
+  // Close on backdrop tap
+  modal.addEventListener('click', e => { if(e.target===modal) closeBuyModal(); });
+  document.body.appendChild(modal);
+}
+
+function copyPayWallet() {
+  const addr = document.getElementById('payWalletAddr').textContent;
+  navigator.clipboard.writeText(addr).then(() => {
+    const btn = document.getElementById('copyPayBtn');
+    btn.textContent = '✅ Copied';
+    setTimeout(() => btn.textContent = '📋 Copy', 2000);
+  }).catch(() => {});
+}
+
+function closeBuyModal() {
+  const m = document.getElementById('buyModal');
+  if (m) m.remove();
+}
+
+function submitBuy(id) {
+  const nft = localNFTs.find(n => n.id === id);
+  if (!nft) return;
+  const txHash = (document.getElementById('txHashInput').value || '').trim();
+  if (!txHash || txHash.length < 10) {
+    document.getElementById('txHashInput').style.borderColor = '#ff6b35';
+    document.getElementById('txHashInput').placeholder = '⚠️ Please enter your TX hash first';
+    return;
+  }
+
+  // Ping admin via ntfy
+  pingAdmin(
+    '💰 NFT Purchase Request',
+    'NFT #' + nft.id + ' | ' + nft.network + ' | Pattern: ' + nft.pattern + ' | $' + nft.price + ' USDT' +
+    '\nAddress: ' + nft.address +
+    '\nTX Hash: ' + txHash +
+    '\nApprove with: /approvenft_' + nft.id + '_BUYERID in bot',
+    'money_with_wings'
+  );
+
+  closeBuyModal();
+
+  // Show confirmation
+  const confirm = document.createElement('div');
+  confirm.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7b61ff,#00f5c4);color:white;padding:14px 24px;border-radius:14px;font-size:inherit;font-weight:700;font-size:13px;z-index:9999;text-align:center;box-shadow:0 8px 32px #00000060;max-width:340px;width:90%';
+  confirm.innerHTML = '✅ Purchase submitted!<br><span style="font-size:11px;font-weight:400;opacity:.85">Admin will verify your TX and transfer the wallet within 1 hour</span>';
+  document.body.appendChild(confirm);
+  setTimeout(() => confirm.remove(), 5000);
 }
 
 function renderLeaderboard() {
@@ -1174,7 +1439,7 @@ function showAdminDashboard() {
     <div style="max-width:600px;margin:0 auto">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
         <div>
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;background:linear-gradient(135deg,#00f5c4,#7b61ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">VanityGen Analytics</div>
+          <div style="font-size:inherit;font-size:22px;font-weight:800;background:linear-gradient(135deg,#00f5c4,#7b61ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">VanityGen Analytics</div>
           <div style="font-size:10px;color:#6b6b80;margin-top:2px">Private Dashboard · ${new Date().toLocaleString()}</div>
         </div>
         <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background:#ffffff15;border:1px solid #ffffff20;color:#e8e8f0;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:12px">✕ Close</button>
